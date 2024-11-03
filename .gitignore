@@ -1,0 +1,7 @@
+*.a
+*.o
+*.log
+.cache
+bin/*
+compile_commands.json
+unit_test
