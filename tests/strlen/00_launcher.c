@@ -15,9 +15,9 @@ int	test_strlen_launcher(void)
 		return (-1);
 	error = 0;
 	error |= add_test(test_unit, "Basic test", &basic_test);
-	error |= add_test(test_unit, "NULL test", &null_test);
+	error |= add_test_expect(test_unit, "NULL test", &null_test, ERRSEGV);
 	error |= add_test(test_unit, "Bigger string test", &bigger_str_test);
-	error |= add_test(test_unit, "Failing test", &failing_test);
+	error |= add_test_expect(test_unit, "Failing test", &failing_test, KO);
 	if (error)
 		return (-1);
 	return (launch_unit(&test_unit));

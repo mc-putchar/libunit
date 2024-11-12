@@ -15,9 +15,9 @@ int	test_dummy_launcher(void)
 		return (-1);
 	error = 0;
 	error |= add_test(test_unit, "Test OK", &test_ok);
-	error |= add_test(test_unit, "Test KO", &test_ko);
-	error |= add_test(test_unit, "Test SIGSEGV", &test_segv);
-	error |= add_test(test_unit, "Test SIGBUS", &test_buserr);
+	error |= add_test_expect(test_unit, "Test KO", &test_ko, KO);
+	error |= add_test_expect(test_unit, "Test SIGSEGV", &test_segv, ERRSEGV);
+	error |= add_test_expect(test_unit, "Test SIGBUS", &test_buserr, ERRBUS);
 	if (error)
 		return (-1);
 	return (launch_unit(&test_unit));

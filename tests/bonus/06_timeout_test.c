@@ -9,6 +9,7 @@ int	timeout_test(void)
 		waste = ((idx * idx) / (idx * 42)) % 123456;
 		if (idx > 12345)
 			idx = (idx * idx) % 42;
+		waste += waste;
 	}
 	if (idx)
 		return (0);

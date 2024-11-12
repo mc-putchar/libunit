@@ -2,7 +2,10 @@
 
 int null_test(void)
 {
-	if (strlen(NULL) == 0)
+	char const	*str;
+
+	str = NULL;
+	if (strlen(str) == 0)
 		return (0);
 	return (-1);
 }

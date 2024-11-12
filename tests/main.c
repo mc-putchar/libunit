@@ -12,7 +12,7 @@ int	main(int ac, char **av)
 		return ((void)av, 1);
 	res = 0;
 	res |= test_dummy_launcher();
-	res |= test_bonus_launcher();
 	res |= test_strlen_launcher();
+	res |= test_bonus_launcher();
 	return (res);
 }

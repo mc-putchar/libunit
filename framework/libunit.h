@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 19:20:31 by mcutura           #+#    #+#             */
-/*   Updated: 2024/11/03 23:22:40 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/11/11 23:57:30 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,6 @@ typedef enum e_status
 	ERRPIPE,
 	ERRILL
 }	t_status;
-
-static char const	*g_status_name[] = {
-	"INIT",
-	"OK",
-	"KO",
-	"TIMEOUT",
-	"SIGSEGV",
-	"SIGBUS",
-	"SIGABRT",
-	"SIGFPE",
-	"SIGPIPE",
-	"SIGILL"
-};
 
 typedef struct s_test
 {
@@ -84,13 +71,15 @@ int			launch_unit(t_unit **test_unit);
 
 // Internal
 int			execute_test_unit(t_unit *unit);
-int			exec_test(t_test *test, unsigned int timeout, int log);
+int			exec_test(t_test *test, unsigned int timeout);
 t_status	get_signal(int sig);
 void		output_prerun(char const *func_name, t_test *test);
 void		output_result(t_test *test);
 void		output_unit_results(t_unit *unit);
 void		free_unit(t_unit **unit);
 int			open_log(char const *filename);
-void		handle_log(int log, int pipe, char const *prefix);
+void		handle_log(int log, int pipe);
+int			throw_error(int err, const char *msg);
+char		*ft_strdup(char const *str);
 
 #endif // LIBUNIT_H

@@ -14,8 +14,8 @@ SRCS += $(addprefix bonus/, \
 	03_test_piperr \
 	04_test_illegal \
 	05_expected_fail_test \
-	06_unexpected_pass_test \
-	07_timeout_test \
+	06_timeout_test \
+	07_unexpected_pass_test \
 )
 SRCS += $(addprefix strlen/, \
 	00_launcher \
@@ -31,7 +31,7 @@ LIBFTDIR := ../libft
 LIBFT := $(LIBFTDIR)/libft.a
 
 CC := cc
-CFLAGS := -Wall -Wextra -std=c99 -pedantic -Wconversion -Wshadow
+CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic -Wconversion -Wshadow
 CPPFLAGS := -I$(LIBUNITDIR) -I$(LIBFTDIR)/include
 LDFLAGS := -L$(LIBUNITDIR) -L$(LIBFTDIR)
 LDLIBS := -lunit -lft

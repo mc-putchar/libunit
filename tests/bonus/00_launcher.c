@@ -24,7 +24,8 @@ int	test_bonus_launcher(void)
 	error |= add_test_expect(test_unit, "Test SIGILL", &test_illegal, ERRILL);
 	error |= add_test_expect(test_unit, "Test Failed", &expect_fail, KO);
 	error |= add_test_expect(test_unit, "Test Timeout", &timeout_test, TIMEOUT);
-	error |= add_test_expect(test_unit, "Test Surprise", &surprise, KO);
+	// error |= add_test_expect(test_unit, "Test Surprise", &surprise, KO);
+	error |= add_test_expect(test_unit, "Test Surprise", &surprise, OK);
 	if (error)
 		return (-1);
 	return (launch_unit(&test_unit));

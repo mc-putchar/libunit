@@ -6,7 +6,7 @@
 #    By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 19:13:42 by mcutura           #+#    #+#              #
-#    Updated: 2024/11/03 23:27:47 by mcutura          ###   ########.fr        #
+#    Updated: 2024/11/06 23:29:46 by mcutura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,6 @@ NAME := libunit.a
 HEADER := libunit.h
 SRCS := libunit logs signals test unit
 BINS := $(SRCS:%=%.o)
-
-LIBFTDIR := ../libft
-LIBFT := $(LIBFTDIR)/libft.a
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic -Wconversion -Wshadow
@@ -33,14 +30,10 @@ all: bonus	# Compile all target binaries
 debug: all	# Compile for debugging
 bonus: $(NAME)	# Compile with bonuses
 
-$(NAME): $(LIBFT) $(HEADER) $(BINS)
+$(NAME): $(HEADER) $(BINS)
 	$(AR) $(ARFLAGS) $@ $^
-
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-
-$(LIBFT):
-	$(MAKE) -C $(LIBFTDIR)
 
 clean:	# Remove compiled intermediary binaries
 	rm -fr $(BINS)

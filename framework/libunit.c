@@ -6,12 +6,11 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 19:51:26 by mcutura           #+#    #+#             */
-/*   Updated: 2024/11/03 19:35:58 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/11/12 00:24:56 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 #include "libunit.h"
 
 t_unit	*create_test_unit(char const *func_name)
@@ -33,6 +32,8 @@ t_unit	*create_timed_test_unit(char const *func_name, unsigned int sec)
 	unit->total = 0;
 	unit->passed = 0;
 	unit->timeout = sec;
+	unit->pipe = -1;
+	unit->log = -1;
 	return (unit);
 }
 
